@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\QueryFilters\ProductFilters;
 
 class HomeController extends Controller
 {
@@ -18,9 +19,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(ProductFilters $filters)
     {
-		$products = Product::paginate(9);
+		$products = Product::filterBy($filters)->paginate(9);
         return view('home', compact('products'));
     }
 }
