@@ -21,7 +21,7 @@ class HomeController extends Controller
      */
     public function index(ProductFilters $filters)
     {
-		$products = Product::filterBy($filters)->paginate(9);
+		$products = Product::filterBy($filters)->paginate(9)->appends('name', request('name'));
         return view('home', compact('products'));
     }
 }
