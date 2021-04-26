@@ -2,6 +2,16 @@
 
 @section('title', 'Shop')
 @section('content')
+	<form method="get">
+	  <div class="form-row align-items-center">
+		<div class="col-auto">
+		  <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Search products" name="name">
+		</div>
+		<div class="col-auto">
+		  <button type="submit" class="btn btn-primary mb-2">Search</button>
+		</div>
+	  </div>
+	</form>
 	<div class="row">
 		@foreach($products as $product)
 			<div class="col-md-4">
