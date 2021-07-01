@@ -12,4 +12,12 @@ class TestController extends Controller
         return view('test')
         ->with('users', User::get());
     }
+    public function destroy($id)
+    {
+        $flight = User::find($id);
+        $flight->delete();
+        return response->json([
+            'status' => 'success'
+        ]);
+    }
 }
