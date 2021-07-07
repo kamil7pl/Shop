@@ -26,6 +26,11 @@
 @section('javascript')
 //alert('test');
 $(function() {
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
     $('.delete').click(function() {
         $.ajax({
         method: "DELETE",
